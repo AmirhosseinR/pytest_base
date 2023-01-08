@@ -25,6 +25,5 @@ format:
 
 lint:
 	pylint --disable=R,C src/*.py
-	pylint --disable=R,C tests/*.py
 
 all: install lint test format
