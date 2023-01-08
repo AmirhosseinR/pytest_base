@@ -3,7 +3,7 @@
 		pip install -r requirements.txt
 
 test:
-	python -m pytest -vv --cov=hello test_hello.py
+	python -m pytest -vv --cov=src tests
 	#python -m pytest -vvv --cov=hello --cov=greeting \
 	#	--cov=smath --cov=web tests
 	#python -m pytest --nbval notebook.ipynb	#tests our jupyter notebook
@@ -20,9 +20,11 @@ debugthree:
 	python -m pytest -vv --pdb --maxfail=4  # drop to PDB for first three failures
 
 format:
-	black *.py
+	black src/*.py
+	black tests/*.py
 
 lint:
-	pylint --disable=R,C *.py
+	pylint --disable=R,C src/*.py
+	pylint --disable=R,C tests/*.py
 
 all: install lint test format
